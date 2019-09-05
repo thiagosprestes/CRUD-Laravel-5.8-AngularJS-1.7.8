@@ -1,0 +1,86 @@
+<div class="container-fluid">
+    <form name="registrarVenda" ng-submit="registrar()">
+        <div class="form-group card" id="formVenda" style="display: none">
+            <div class="card-body">
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <input type="text" name="cliente" id="cliente" class="form-control" placeholder="Nome do cliente" ng-model="venda.cliente" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <input type="text" name="espetinhos2" id="espetinhos2" class="form-control" placeholder="Quantidade de espetinhos de carne" ng-model="venda.qtdEspetinhosCarne" ng-change="somarValores()" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" name="espetinhos3" id="espetinhos3" class="form-control" placeholder="Quantidade de espetinhos de frango" ng-model="venda.qtdEspetinhosFrango" ng-change="somarValores()" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" name="sanduiches" id="sanduiches" class="form-control" placeholder="Quantidade de sanduíches consumidos" ng-model="venda.sanduiches" ng-change="somarValores()" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <input type="text" name="total" id="total" class="form-control" placeholder="Valor total da venda" ng-model="venda.total" ng-change="somarValores()" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" name="situacao" id="situacao" class="form-control" placeholder="Situação da venda" ng-model="venda.situacao" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" name="data" id="data" class="form-control" placeholder="Data" ng-model="venda.data" required>
+                    </div>
+                </div>
+                <div class="float-right">
+                    <button type="submit" class="btn btn-primary">{{botao}}</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="form-group" style="overflow: auto">
+        <div class="float-left">
+            <input type="text" name="buscar" id="buscar" class="form-control" placeholder="Buscar" ng-model="buscarvendas">
+        </div>
+
+        <div class="float-right">
+            <button class="btn btn-primary" ng-click="mostrarFormVenda()">Registrar venda</button>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="alert alert-success" ng-if="msg">{{msg}}</div>
+    </div>
+
+    <div class="form-group">
+        <h4 ng-if="vendas == 0">Nenhuma venda registrada</h4>
+    </div>
+
+    <table class="table table-light table-bordered table-responsive-md" ng-if="vendas != 0" ng-init="listar()">
+        <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Espetinhos de carne</th>
+                <th>Espetinhos de frango</th>
+                <th>Sanduíches</th>
+                <th>Total</th>
+                <th>Situação</th>
+                <th>Data</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="venda in vendas | filter:buscarvendas">
+                <td>{{::venda.cliente}}</td>
+                <td>{{::venda.qtdEspetinhosCarne}}</td>
+                <td>{{::venda.qtdEspetinhosFrango}}</td>
+                <td>{{::venda.sanduiches}}</td>
+                <td>{{::venda.total | currency: 'R$ '}}</td>
+                <td>{{::venda.situacao}}</td>
+                <td>{{::venda.data | date: 'dd/MM/y'}}</td>
+                <td>
+                    <button class="btn btn-warning" ng-click="editar(venda)">Editar</button>
+                    <button class="btn btn-danger" ng-click="excluir(venda.id)">Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
