@@ -1,2 +1,9 @@
-# CRUD-Laravel-5.8-AngularJS-1.7.8
-Just for practice...
+# About this project
+
+A very simple crud made with angular js and laravel for api. Project based on a skewer tent of a friend of mine.
+
+# Funcionalities
+
+* Sales log, such as number of snacks consumed by taste, customer name and how much was spent
+
+* Daily sales balance with number of snacks consumed on the day according to taste, total number of customers served and total collected.
