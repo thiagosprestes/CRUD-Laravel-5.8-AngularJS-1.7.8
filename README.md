@@ -1,17 +1,16 @@
-# About this project
+# Sobre este projeto
 
-A very simple crud made with angular js and laravel for api. Project based on a skewer tent of a friend of mine.
+Um crud simples feito com angularJS e laravel. Projeto baseado em uma barraca de espetinhos de um amigo meu.
 
-# Funcionalities
+# Funcionalidades
 
-* Sales log, such as number of snacks consumed by taste, customer name and how much was spent
+* Registro de vendas, nomero de espetinhos consumidos por savor, nome do cliente e quanto ele gastou
+* Balanco diário de vendas com o número de espetinhos consumidos por sabor, número de vendas realizadas e lucro total
 
-* Daily sales balance with number of snacks consumed on the day according to taste, total number of customers served and total collected.
-
-# Built with
+# Desenvolvido com
 
 * [AngularJS](https://angularjs.org/) - Single page application
 
-* [Angular-route](https://docs.angularjs.org/api/ngRoute) - Route
+* [Angular-route](https://docs.angularjs.org/api/ngRoute) - Rotas
 
 * [Laravel](https://laravel.com/) - API
