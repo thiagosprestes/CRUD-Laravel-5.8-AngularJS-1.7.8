@@ -23,7 +23,7 @@
         "vue": "^2.5.17"
     },
     "dependencies": {
-        "angular": "^1.7.8",
+        "angular": "^1.8.0",
         "angular-route": "^1.7.8",
         "jquery-mask-plugin": "^1.14.16"
     }
